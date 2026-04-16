@@ -1,0 +1,19 @@
+name: Auto Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Ajouter un commit automatique
+        run: |
+          echo "Auto commit" >> auto.txt
+          git config user.name "Badge Booster Bot"
+          git config user.email "bot@example.com"
+          git add .
+          git commit -m "Auto commit pour badge Actions"
+      - name: Push
+        run: git push
