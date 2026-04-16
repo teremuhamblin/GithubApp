@@ -1,10 +1,6 @@
-📄 README.md
-
-`markdown
-
-GitHub App — Badge Booster
-
-Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub :
+##### 📄 README.md - markdown
+# GithubApp
+> Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub :
 
 - Quickdraw (issues)
 - Pull Shark (pull requests)
@@ -14,7 +10,7 @@ Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieur
 - Starstruck (stars)
 
 Structure :
-`text
+```text
 GithubApp/
 │
 ├── README.md
@@ -23,7 +19,7 @@ GithubApp/
 ├── .env.example
 └── workflows/
     └── auto-actions.yml
-`
+```
 
 Fonctionnalités
 - Création automatique d’issues
