@@ -1,0 +1,13 @@
+{
+  "name": "github-app-badge-booster",
+  "version": "1.0.0",
+  "description": "GitHub App pour débloquer automatiquement des badges GitHub",
+  "main": "app.js",
+  "scripts": {
+    "start": "probot run ./app.js"
+  },
+  "dependencies": {
+    "probot": "^12.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
