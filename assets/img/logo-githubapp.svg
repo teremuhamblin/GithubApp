@@ -1,0 +1,43 @@
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#00e0ff" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#050814" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#020309" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e0ff"/>
+      <stop offset="100%" stop-color="#7af2ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="220" height="220" fill="url(#bg)"/>
+
+  <!-- Hexagone -->
+  <polygon
+    points="110,30 165,62 165,128 110,160 55,128 55,62"
+    fill="none"
+    stroke="url(#stroke)"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Circuit / tête de bot -->
+  <circle cx="90" cy="95" r="10" fill="#00e0ff"/>
+  <circle cx="130" cy="95" r="10" fill="#00e0ff"/>
+
+  <rect x="82" y="120" width="56" height="6" rx="3" fill="#00e0ff" opacity="0.8"/>
+
+  <path d="M70 80 L60 70" stroke="#00e0ff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="58" cy="68" r="3" fill="#00e0ff"/>
+
+  <path d="M150 80 L160 70" stroke="#00e0ff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="162" cy="68" r="3" fill="#00e0ff"/>
+
+  <!-- Label text -->
+  <text x="110" y="195" text-anchor="middle" fill="#9aa0c2"
+        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="14" letter-spacing="3">
+    GITHUBAPP
+  </text>
+</svg>
