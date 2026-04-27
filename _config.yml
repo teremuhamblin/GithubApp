@@ -1,0 +1,10 @@
+title: "GithubApp"
+description: "Bot GitHub automatisé — issues, PR, labels, commandes."
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+minima:
+  skin: dark
