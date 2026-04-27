@@ -17,7 +17,8 @@ GithubApp/
 │       ├── auto-merge.yml
 │       ├── auto-comment.yml
 │       ├── deploy.yml
-│
+├── pattern/
+     ├── .gitkeep (option)
 ├── src/
 │   ├── server.js
 │   ├── github.js
