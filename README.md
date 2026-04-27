@@ -1,11 +1,8 @@
 ##### 📄 README.md - markdown
 # GithubApp
-> Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub :
+> Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub.
 
-- Quickdraw (issues)
-- Pull Shark (pull requests)
-- YOLO (me
-Structure :
+### Structure :
 ```text
 GithubApp/
 │
@@ -17,6 +14,8 @@ GithubApp/
 │       ├── auto-merge.yml
 │       ├── auto-comment.yml
 │       ├── deploy.yml
+├── assets/
+│   ├── .gitkeep (option)
 ├── docs/
 │   ├── .gitkeep (option)
 ├── pattern/
@@ -39,7 +38,7 @@ GithubApp/
 └── test.md
 ```
 
-Fonctionnalités
+### Fonctionnalités
 - Création automatique d’issues
 - Création automatique de pull requests
 - Merge automatique
@@ -47,7 +46,7 @@ Fonctionnalités
 - Déclenchement de workflows GitHub Actions
 - Publication automatique d’une GitHub Pages
 
-Installation
+### Installation
 1. Aller dans Settings → Developer settings → GitHub Apps
 2. Cliquer New GitHub App
 3. Renseigner :
@@ -62,27 +61,27 @@ Installation
 5. Copier l’App ID, Client ID, Client Secret
 6. Installer l’app sur un dépôt
 
-Lancer en local
-`
+>Lancer en local
+```text
 npm install
 npm start
-`
+```
 
-Variables d’environnement
+>Variables d’environnement
 Créer un fichier .env :
-
-`
+```text
 APP_ID=xxxx
 PRIVATE_KEY="-----BEGIN PRIVATE KEY-----..."
 WEBHOOK_SECRET=xxxx
-`
-`
-
----🧩 1) README.md — Version MÀJ, claire, moderne, cyber‑tech, optimisé pour GitHub, SEO, onboarding contributeurs, et branding cyber‑tech.
+```
 
 ---
 
-📘 README.md
+## 🧩 Version mise à jour, claire, moderne, cyber‑tech, optimisé pour GitHub, SEO, onboarding contributeurs, et branding cyber‑tech.
+
+---
+
+📘 README.md * màj
 
 `md
 
