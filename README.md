@@ -4,21 +4,33 @@
 
 - Quickdraw (issues)
 - Pull Shark (pull requests)
-- YOLO (merge automatique)
-- Actions (workflows)
-- Pages Publisher (pages)
-- Starstruck (stars)
-
+- YOLO (me
 Structure :
 ```text
 GithubApp/
 │
-├── README.md
-├── app.js
-├── package.json
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       ├── auto-merge.yml
+│       ├── auto-comment.yml
+│       ├── deploy.yml
+│
+├── src/
+│   ├── server.js
+│   ├── github.js
+│   ├── handlers/
+│   │   ├── issues.js
+│   │   ├── pullRequests.js
+│   │   └── comments.js
+│   └── utils/
+│       └── logger.js
+│
 ├── .env.example
-└── workflows/
-    └── auto-actions.yml
+├── package.json
+├── README.md
+├── LICENSE
+└── test.md
 ```
 
 Fonctionnalités
