@@ -1,5 +1,6 @@
-Architecture.md * markdown
-# 📄 ARCHITECTURE — GithubApp 🤖
+###### Architecture.md * markdown
+# 📄 ARCHITECTURE 
+- ### — GithubApp 🤖
 >Ce document décrit l’architecture interne du bot GithubApp.
 
 ---
