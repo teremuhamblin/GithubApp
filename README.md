@@ -183,13 +183,13 @@ Dans un commentaire :
 - les mots‑clés  
 
 >Exemples :
-```text
+
 | Mot‑clé | Label |
 |--------|--------|
 | bug, error, crash | bug |
 | feature, add, implement | enhancement |
 | docs, documentation | documentation |
-```
+
 
 ---
 
