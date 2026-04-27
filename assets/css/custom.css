@@ -1,0 +1,71 @@
+:root {
+  --bg: #05060a;
+  --bg-alt: #0b0f1a;
+  --accent: #00e0ff;
+  --accent-soft: rgba(0, 224, 255, 0.15);
+  --text: #f5f7ff;
+  --muted: #9aa0c2;
+  --border: #1b2238;
+  --radius: 8px;
+}
+
+body {
+  background: radial-gradient(circle at top, #101426 0, #05060a 55%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+  color: #7af2ff;
+}
+
+.site-header,
+.site-footer {
+  background: #05060a !important;
+  border-color: var(--border) !important;
+}
+
+.page-content {
+  background: linear-gradient(145deg, #05060a, #050814);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.03em;
+}
+
+code,
+pre {
+  background: #050814 !important;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.highlight {
+  background: #050814 !important;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-soft);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
