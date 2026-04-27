@@ -1,13 +1,22 @@
 {
-  "name": "github-app-badge-booster",
+  "name": "githubapp",
   "version": "1.0.0",
-  "description": "GitHub App pour débloquer automatiquement des badges GitHub",
-  "main": "app.js",
+  "description": "Bot GitHub automatisé avec webhooks",
+  "main": "src/server.js",
   "scripts": {
-    "start": "probot run ./app.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "test": "echo \"No tests yet\""
   },
   "dependencies": {
-    "probot": "^12.0.0",
+    "@octokit/webhooks": "^12.0.0",
+    "@octokit/core": "^5.0.0",
+    "express": "^4.18.0",
     "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "nodemon": "^3.0.0"
   }
 }
