@@ -91,3 +91,34 @@ Pour ajouter une fonctionnalité :
 `
 
 ---
+
+###### Mise à jour de la branche à la racine
+**`docs/architecture.md`**
+
+```md
+---
+layout: default
+title: "Architecture"
+nav_order: 3
+---
+
+# 🧱 Architecture
+
+```text
+src/
+  server.js
+  github.js
+  handlers/
+    issues.js
+    pullRequests.js
+    comments.js
+    commands.js
+    labeling.js
+  utils/
+    logger.js
+pattern/
+  index.md
+  naming-convention.md
+  commit-style.md
+  design-patterns.md
+```
