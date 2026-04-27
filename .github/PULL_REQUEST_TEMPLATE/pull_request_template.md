@@ -1,4 +1,4 @@
-# 🔀 Pull Request — GithubApp
+# 🔀 Pull Request Temolate — GithubApp
 
 ## 🎯 Description
 Expliquez ce que fait cette PR.
