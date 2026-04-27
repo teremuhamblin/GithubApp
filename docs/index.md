@@ -16,3 +16,4 @@ Bienvenue sur la documentation officielle de **GithubApp**.
 - [🧱 Architecture](architecture.html)
 - [💬 Commandes](commands.html)
 - [📐 Patterns & Conventions](patterns.html)
+- [⬅ Retour à l’overview](index.html)
