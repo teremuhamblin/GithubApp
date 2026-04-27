@@ -10,8 +10,10 @@ Structure :
 GithubApp/
 │
 ├── .github/
+│   ├── .gitkeep (option)
 │   └── workflows/
-│       ├── ci.yml
+│       ├── .gitkeep (option)
+│       ├── ci.yml 
 │       ├── auto-merge.yml
 │       ├── auto-comment.yml
 │       ├── deploy.yml
@@ -20,6 +22,7 @@ GithubApp/
 │   ├── server.js
 │   ├── github.js
 │   ├── handlers/
+│   │   ├── .gitkeep (option)
 │   │   ├── issues.js
 │   │   ├── pullRequests.js
 │   │   └── comments.js
