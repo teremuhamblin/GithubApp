@@ -1,62 +1,25 @@
-/**
- * GitHub App — Badge Booster
- * Automatise des actions pour débloquer des badges GitHub
- */
+import express from "express";
+import { Webhooks } from "@octokit/webhooks";
+import dotenv from "dotenv";
+import issueHandler from "./handlers/issues.js";
+import prHandler from "./handlers/pullRequests.js";
+import commentHandler from "./handlers/comments.js";
 
-module.exports = (app) => {
-  app.log.info("Badge Booster App démarrée !");
+dotenv.config();
 
-  // 1. Création automatique d'une issue
-  app.on("installation.created", async (context) => {
-    const repos = context.payload.repositories;
+const app = express();
+app.use(express.json());
 
-    for (const repo of repos) {
-      await context.octokit.issues.create({
-        owner: repo.owner.login,
-        repo: repo.name,
-        title: "🎉 Issue automatique pour débloquer le badge Quickdraw",
-        body: "Cette issue a été créée automatiquement par la GitHub App Badge Booster."
-      });
-    }
-  });
+const webhooks = new Webhooks({
+  secret: process.env.WEBHOOK_SECRET
+});
 
-  // 2. Création automatique d'une pull request
-  app.on("push", async (context) => {
-    const repo = context.payload.repository;
+webhooks.on("issues.opened", issueHandler);
+webhooks.on("pull_request.opened", prHandler);
+webhooks.on("issue_comment.created", commentHandler);
 
-    await context.octokit.pulls.create({
-      owner: repo.owner.login,
-      repo: repo.name,
-      title: "✨ PR automatique pour débloquer Pull Shark",
-      head: "auto-branch",
-      base: "main",
-      body: "Cette PR est générée automatiquement."
-    });
-  });
+app.use(webhooks.middleware);
 
-  // 3. Merge automatique
-  app.on("pull_request.opened", async (context) => {
-    const pr = context.payload.pull_request;
-
-    await context.octokit.pulls.merge({
-      owner: pr.base.repo.owner.login,
-      repo: pr.base.repo.name,
-      pull_number: pr.number,
-      merge_method: "merge"
-    });
-  });
-
-  // 4. Déclenchement d’un workflow GitHub Actions
-  app.on("installation.created", async (context) => {
-    const repos = context.payload.repositories;
-
-    for (const repo of repos) {
-      await context.octokit.actions.createWorkflowDispatch({
-        owner: repo.owner.login,
-        repo: repo.name,
-        workflow_id: "auto-actions.yml",
-        ref: "main"
-      });
-    }
-  });
-};
+app.listen(process.env.PORT, () => {
+  console.log(`🚀 GithubApp running on port ${process.env.PORT}`);
+});
