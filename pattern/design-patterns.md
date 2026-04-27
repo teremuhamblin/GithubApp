@@ -62,3 +62,18 @@ Exemples :
 ## 🧩 7. Pattern Event‑Driven
 
 Le bot réagit aux événements GitHub via un système d’abonnements :
+
+`
+webhooks.on("issues.opened", issueHandler)
+webhooks.on("pull_request.opened", prHandler)
+`
+
+---
+
+✔️ Résultat
+
+`
+Une architecture claire, scalable, et adaptée à un bot GitHub professionnel.
+`
+
+---
