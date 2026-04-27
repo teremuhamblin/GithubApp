@@ -1,0 +1,14 @@
+# CODEOWNERS — GithubApp
+
+# Mainteneur principal
+* @teremuhamblin
+
+# Dossier src
+/src/ @teremuhamblin
+
+# Documentation
+/docs/ @teremuhamblin
+/.github/ @teremuhamblin
+
+# Patterns
+/pattern/ @teremuhamblin
