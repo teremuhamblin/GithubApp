@@ -77,7 +77,8 @@ WEBHOOK_SECRET=xxxx
 
 ---
 
-## 🧩 Version mise à jour, claire, moderne, cyber‑tech, optimisé pour GitHub, SEO, onboarding contributeurs, et branding cyber‑tech.
+## 🧩 Version mise à jour
+>Claire, moderne, cyber‑tech, optimisé pour GitHub, SEO, onboarding contributeurs, et branding cyber‑tech.
 
 ---
 
@@ -85,15 +86,14 @@ WEBHOOK_SECRET=xxxx
 
 `md
 
-GithubApp 🤖⚡
-Bot GitHub automatisé — Webhooks, auto‑commentaires, auto‑merge, auto‑labeling, commandes, logs avancés.
-
-GithubApp est une application Node.js connectée à une GitHub App.  
-Elle automatise vos issues, pull requests, commentaires, labels, et interactions via webhooks.
+### GithubApp 🤖⚡
+- Bot GitHub automatisé — Webhooks, auto‑commentaires, auto‑merge, auto‑labeling, commandes, logs avancés.
+- GithubApp est une application Node.js connectée à une GitHub App.  
+- Elle automatise vos issues, pull requests, commentaires, labels, et interactions via webhooks.
 
 ---
 
-🚀 Fonctionnalités
+### 🚀 Fonctionnalités
 
 - 📝 Auto‑commentaire sur issues & PR  
 - 🔀 Auto‑merge intelligent  
@@ -106,21 +106,19 @@ Elle automatise vos issues, pull requests, commentaires, labels, et interactions
 
 ---
 
-📦 Installation
+### 📦 Installation
 
-`bash
+```bash
 git clone https://github.com/teremuhamblin/GithubApp.git
 cd GithubApp
 npm install
-`
+```
 
 ---
 
-🔧 Configuration
-
-Créer un fichier .env :
-
-`env
+### 🔧 Configuration
+>Créer un fichier .env :
+```env
 APP_ID=
 PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
 ...
@@ -128,21 +126,19 @@ PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
 WEBHOOK_SECRET=
 GITHUB_TOKEN=
 PORT=3000
-`
+```
 
 ---
 
-▶️ Lancer le bot
-
-`bash
+### ▶️ Lancer le bot
+```bash
 npm run dev
-`
+```
 
 ---
 
-🧱 Structure du projet
-
-`
+### 🧱 Structure du projet
+```text
 src/
   server.js
   github.js
@@ -154,11 +150,11 @@ src/
     labeling.js
   utils/
     logger.js
-`
+```
 
 ---
 
-🧪 Webhooks supportés
+### 🧪 Webhooks supportés
 
 - issues.opened  
 - pull_request.opened  
@@ -168,39 +164,36 @@ src/
 
 ---
 
-🧩 Commandes disponibles
+###🧩 Commandes disponibles
 
 Dans un commentaire :
-
-`
+```text
 /help
 /label bug
 /label enhancement
 /close
-`
+```
 
 ---
 
-🏷️ Auto‑labeling
-
-Le bot analyse automatiquement :
-
+### 🏷️ Auto‑labeling
+>Le bot analyse automatiquement :
 - le titre  
 - la description  
 - les mots‑clés  
 
-Exemples :
-
+>Exemples :
+```text
 | Mot‑clé | Label |
 |--------|--------|
 | bug, error, crash | bug |
 | feature, add, implement | enhancement |
 | docs, documentation | documentation |
+```
 
 ---
 
-📊 Logs avancés
-
+### 📊 Logs avancés
 - couleur par niveau  
 - timestamps  
 - format JSON optionnel  
@@ -208,11 +201,9 @@ Exemples :
 
 ---
 
-📄 Licence
+### 📄 Licence
 
 MIT — libre d’utilisation.
 `
 
 ---
-
-
