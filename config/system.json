@@ -1,0 +1,11 @@
+{
+  "appName": "GithubApp",
+  "version": "2.0.0",
+  "logLevel": "info",
+  "features": {
+    "contextEngine": true,
+    "rulesEngine": true,
+    "autoLabels": true,
+    "autoAssign": true
+  }
+}
