@@ -1,0 +1,73 @@
+{
+  "rules": [
+    {
+      "id": "pr-auto-label",
+      "description": "Labeler automatiquement les PR volumineuses",
+      "enabled": true,
+      "match": {
+        "event": "pull_request",
+        "action": "opened"
+      },
+      "conditions": [
+        {
+          "path": "pull_request.additions",
+          "operator": ">",
+          "value": 500
+        }
+      ],
+      "actions": [
+        {
+          "type": "add_label",
+          "params": { "label": "size/large" }
+        },
+        {
+          "type": "comment",
+          "params": {
+            "body": "Merci pour cette grosse PR ! Pense à bien détailler les changements. 🙌"
+          }
+        }
+      ]
+    },
+    {
+      "id": "issue-auto-assign",
+      "description": "Assigner automatiquement les issues marquées 'bug'",
+      "enabled": true,
+      "match": {
+        "event": "issues",
+        "action": "opened"
+      },
+      "conditions": [
+        {
+          "path": "issue.labels",
+          "operator": "includes",
+          "value": "bug"
+        }
+      ],
+      "actions": [
+        {
+          "type": "assign",
+          "params": { "assignees": ["maintainer-bot"] }
+        }
+      ]
+    },
+    {
+      "id": "star-thanks",
+      "description": "Créer une issue de remerciement lors d'une star",
+      "enabled": true,
+      "match": {
+        "event": "star",
+        "action": "created"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "create_issue",
+          "params": {
+            "title": "Nouveau star ⭐",
+            "body": "Merci à @{{sender.login}} pour la star sur le repo !"
+          }
+        }
+      ]
+    }
+  ]
+}
