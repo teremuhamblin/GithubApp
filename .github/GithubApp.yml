@@ -1,0 +1,22 @@
+# Configuration avancée pour GithubApp
+
+plugins:
+  plugin-auto-maintenance:
+    autoClose:
+      days: 30
+      message: "⏳ Cette issue est fermée automatiquement après 30 jours d'inactivité."
+    autoLabel:
+      - match: "bug"
+        label: "bug"
+      - match: "feature"
+        label: "enhancement"
+
+patterns:
+  welcome_issue: "Merci pour votre issue ! L’équipe va la traiter rapidement."
+  stale_warning: "Cette issue semble inactive. Une action est-elle toujours nécessaire ?"
+
+rules:
+  - if: "title contains 'urgent'"
+    action: "label"
+    params:
+      label: "priority-high"
