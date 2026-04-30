@@ -1,0 +1,7 @@
+{
+  "preferences": {
+    "defaultAssignee": "maintainer-bot",
+    "enableThankStars": true,
+    "autoLabelPR": true
+  }
+}
