@@ -59,3 +59,42 @@ Les versions sont organisées par objectifs, stabilité et priorités.
 - Interface web complète
 - Mode multi‑projets
 - Intégration Slack / Discord
+
+## 🗺️ Cycle prévu : **v2.0 → v3.0**
+
+---
+
+## 🎯 v2.0 — Intelligence contextuelle & configuration avancée
+- [x] Support des règles avancées dans githubapp.yml
+- [x] Moteur de règles conditionnelles
+- [x] Réponses contextuelles basées sur l’historique
+- [x] Refactor des handlers pour logique dynamique
+- [x] Optimisation du logger
+
+---
+
+## 🎯 v2.5 — Patterns intelligents & auto‑actions évoluées
+- [x] Patterns dynamiques avec variables
+- [x] Auto‑actions avancées (assign, reviewer, close, label)
+- [x] Système d’actions différées (scheduler)
+- [x] Amélioration du moteur de templates
+- [x] Uniformisation du style rédactionnel
+
+---
+
+## 🎯 v3.0 — Architecture modulaire & système de plugins
+- [x] Création du système de plugins GithubApp
+- [x] API interne pour plugins externes
+- [x] Plugin officiel : auto‑maintenance
+- [x] Event bus interne
+- [x] Monitoring interne (stats, logs, usage)
+- [x] Refactor du cœur du bot pour modularité
+- [x] Validation avancée de la configuration
+
+---
+
+## 🧭 Vision long terme (post‑3.0)
+- [ ] Marketplace interne de plugins GithubApp
+- [ ] Interface web de configuration (dashboard)
+- [ ] Analytics avancées (tendances, heatmaps, activité)
+- [ ] Mode “AI assistant” pour suggestions automatiques
