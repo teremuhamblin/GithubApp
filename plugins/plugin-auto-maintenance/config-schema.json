@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "autoClose": {
+      "type": "object",
+      "properties": {
+        "days": { "type": "number" },
+        "message": { "type": "string" }
+      }
+    },
+    "autoLabel": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "match": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    }
+  }
+}
