@@ -10,7 +10,33 @@ import prHandler from "./handlers/pullRequests.js";
 import commentHandler from "./handlers/comments.js";
 import commandHandler from "./handlers/commands.js";
 import labelingHandler from "./handlers/labeling.js";
+import handlers from "./handlers/index.js";
 
+app.post("/webhook", async (req, res) => {
+  const event = req.headers["x-github-event"];
+  const payload = req.body;
+
+  switch (event) {
+    case "issues":
+      if (payload.action === "reopened") handlers.issuesReopened(payload, github);
+      break;
+
+    case "pull_request":
+      if (payload.action === "review_requested") handlers.pullRequestReview(payload, github);
+      if (payload.action === "closed" && payload.pull_request.merged)
+        handlers.pullRequestMerged(payload, github);
+      break;
+
+    case "issue_comment":
+      if (payload.action === "edited") handlers.commentEdited(payload, github);
+      handlers.autoReply(payload, github);
+      break;
+  }
+
+  handlers.autoLabels(payload, github);
+
+  res.status(200).send("OK");
+});
 dotenv.config();
 
 const app = express();
