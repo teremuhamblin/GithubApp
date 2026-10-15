@@ -3,40 +3,7 @@
 > Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub.
 
 ### Structure :
-```text
-GithubApp/
-│
-├── .github/
-│   ├── .gitkeep (option)
-│   └── workflows/
-│       ├── .gitkeep (option)
-│       ├── ci.yml 
-│       ├── auto-merge.yml
-│       ├── auto-comment.yml
-│       ├── deploy.yml
-├── assets/
-│   ├── .gitkeep (option)
-├── docs/
-│   ├── .gitkeep (option)
-├── pattern/
-     ├── .gitkeep (option)
-├── src/
-│   ├── server.js
-│   ├── github.js
-│   ├── handlers/
-│   │   ├── .gitkeep (option)
-│   │   ├── issues.js
-│   │   ├── pullRequests.js
-│   │   └── comments.js
-│   └── utils/
-│       └── logger.js
-│
-├── .env.example
-├── package.json
-├── README.md
-├── LICENSE
-└── test.md
-```
+>> **VOIR STRUCTURE.md**
 
 ### Fonctionnalités
 - Création automatique d’issues
