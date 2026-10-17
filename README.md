@@ -1,67 +1,18 @@
 ##### 📄 README.md - markdown
 # GithubApp
-> Cette GitHub App automatise des actions dans un dépôt pour débloquer plusieurs badges GitHub.
-
-### Structure :
->> **VOIR STRUCTURE.md**
-
-### Fonctionnalités
-- Création automatique d’issues
-- Création automatique de pull requests
-- Merge automatique
-- Commit automatique
-- Déclenchement de workflows GitHub Actions
-- Publication automatique d’une GitHub Pages
-
-### Installation
-1. Aller dans Settings → Developer settings → GitHub Apps
-2. Cliquer New GitHub App
-3. Renseigner :
-   - Homepage URL : https://example.com
-   - Webhook URL : URL Smee.io
-   - Permissions :
-     - Contents : Read/Write
-     - Issues : Read/Write
-     - Pull Requests : Read/Write
-     - Actions : Read/Write
-4. Générer une clé privée
-5. Copier l’App ID, Client ID, Client Secret
-6. Installer l’app sur un dépôt
-
->Lancer en local
-```text
-npm install
-npm start
-```
-
->Variables d’environnement
-Créer un fichier .env :
-```text
-APP_ID=xxxx
-PRIVATE_KEY="-----BEGIN PRIVATE KEY-----..."
-WEBHOOK_SECRET=xxxx
-```
-
----
-
-## 🧩 Version mise à jour
->Claire, moderne, cyber‑tech, optimisé pour GitHub, SEO, onboarding contributeurs, et branding cyber‑tech.
-
----
-
-📘 README.md * màj
-
-`md
+- 📘 README.md * màj
 
 ### GithubApp 🤖⚡
+```text
 - Bot GitHub automatisé — Webhooks, auto‑commentaires, auto‑merge, auto‑labeling, commandes, logs avancés.
 - GithubApp est une application Node.js connectée à une GitHub App.  
 - Elle automatise vos issues, pull requests, commentaires, labels, et interactions via webhooks.
+```
 
 ---
 
 ### 🚀 Fonctionnalités
-
+```text
 - 📝 Auto‑commentaire sur issues & PR  
 - 🔀 Auto‑merge intelligent  
 - 🏷️ Auto‑labeling basé sur le contenu  
@@ -70,6 +21,7 @@ WEBHOOK_SECRET=xxxx
 - 📊 Logs avancés (niveau, couleur, timestamps)  
 - 🧩 Architecture modulaire  
 - 🔐 Gestion sécurisée via .env
+```
 
 ---
 
@@ -122,12 +74,13 @@ src/
 ---
 
 ### 🧪 Webhooks supportés
-
+```tzxt
 - issues.opened  
 - pull_request.opened  
 - issue_comment.created  
 - pull_request.synchronize  
 - label.created  
+```
 
 ---
 
@@ -144,10 +97,12 @@ Dans un commentaire :
 ---
 
 ### 🏷️ Auto‑labeling
+```markdown
 >Le bot analyse automatiquement :
 - le titre  
 - la description  
 - les mots‑clés  
+```
 
 >Exemples :
 
@@ -169,8 +124,6 @@ Dans un commentaire :
 ---
 
 ### 📄 Licence
-
-MIT — libre d’utilisation.
-`
+###### MIT — libre d’utilisation.
 
 ---
