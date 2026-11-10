@@ -1,54 +1,92 @@
-// src/tui/dashboard.js
 import blessed from 'blessed';
 import contrib from 'blessed-contrib';
+import { createLogViewer } from './widgets/logViewer.js';
+import { createStatsGauges } from './widgets/statsGauges.js';
+import { createReconView } from './widgets/reconView.js';
 
-export function initDashboard(metricsEmitter, reconEngine) {
-  const screen = blessed.screen({ smartCSR: true, title: 'Ghost Recon Dashboard' });
+/**
+ * Lance le tableau de bord TUI Ghost Recon complet.
+ */
+export function startDashboard(metricsEmitter, reconEngineInstance) {
+  const screen = blessed.screen({
+    smartCSR: true,
+    title: 'GithubApp - Ghost Recon Operations Center',
+    fullUnicode: true
+  });
+
+  // Grille 12x12
   const grid = new contrib.grid({ rows: 12, cols: 12, screen });
 
-  // 1. Logs filtrables
-  const logBox = grid.set(0, 0, 8, 8, contrib.log, {
-    label: '📡 Logs en direct (Ghost Recon)',
-    fg: 'green',
-    selectedFg: 'green',
-    border: { type: 'line', fg: 'cyan' }
+  // 1. Logs filtrables (Haut Gauche)
+  const logViewer = createLogViewer(grid, 0, 0, 8, 8);
+
+  // 2. Statistiques en temps réel (Haut Droite)
+  const statsGauges = createStatsGauges(grid);
+
+  // 3. Vue Recon Mode (Bas Pleine Largeur)
+  const reconView = createReconView(grid, 8, 0, 4, 12);
+
+  // Rendu initial de la table
+  reconView.renderRows(reconEngineInstance.getHistory());
+
+  // Connexion des événements du collecteur de métriques
+  metricsEmitter.on('webhook', ({ event, action, durationMs, success }) => {
+    const status = success ? 'SUCCESS' : 'FAIL';
+    const level = success ? 'INFO' : 'ERROR';
+    logViewer.addLog(`${event}:${action} (${status}) en ${durationMs}ms`, level);
+    screen.render();
   });
 
-  // 2. Stats en temps réel (Jauges & Sparklines)
-  const rateLimitGauge = grid.set(0, 8, 4, 4, contrib.gauge, {
-    label: 'GitHub API Quota Remaining',
-    stroke: 'yellow',
-    fill: 'white'
+  metricsEmitter.on('stats_update', (snapshot) => {
+    statsGauges.update(snapshot);
+    screen.render();
   });
 
-  const eventSparkline = grid.set(4, 8, 4, 4, contrib.sparkline, {
-    label: 'Events/sec (Flux Webhooks)',
-    tags: true,
-    style: { fg: 'blue' }
+  // Connexion du Recon Mode
+  reconEngineInstance.on('intercepted', () => {
+    reconView.renderRows(reconEngineInstance.getHistory());
+    screen.render();
   });
 
-  // 3. Recon Mode Monitor
-  const reconTable = grid.set(8, 0, 4, 12, contrib.table, {
-    keys: true,
-    fg: 'white',
-    label: '🕵️ Mode Recon (Actions interceptées sans mutation)',
-    columnWidth: [20, 20, 30, 45]
+  reconEngineInstance.on('toggle', (state) => {
+    logViewer.addLog(`Recon Mode basculé : ${state ? 'ACTIVÉ (Lecture Seule)' : 'DÉSACTIVÉ'}`, 'WARN');
+    screen.render();
   });
 
-  // Raccourcis clavier (Filtres & Quitter)
+  // Barre d'instructions / touches de contrôle
+  const helpBar = blessed.box({
+    bottom: 0,
+    left: 0,
+    height: 1,
+    width: '100%',
+    style: { bg: 'blue', fg: 'white', bold: true },
+    content: ' [Q/Ctrl+C] Quitter | [M] Basculer Recon Mode | [F] Filtrer Logs | [C] Vider Recon Table '
+  });
+  screen.append(helpBar);
+
+  // Raccourcis clavier
   screen.key(['escape', 'q', 'C-c'], () => process.exit(0));
 
-  // Écoute des métriques en temps réel
-  metricsEmitter.on('webhook', ({ event, repo, action }) => {
-    logBox.log(`[${new Date().toLocaleTimeString()}] ${event}:${action} sur ${repo}`);
+  screen.key(['m', 'M'], () => {
+    reconEngineInstance.toggle();
+  });
+
+  screen.key(['c', 'C'], () => {
+    reconEngineInstance.clear();
+    reconView.renderRows([]);
     screen.render();
   });
 
-  metricsEmitter.on('stats_update', (stats) => {
-    rateLimitGauge.setPercent(stats.rateLimitPercent);
-    eventSparkline.setData(['Webhooks'], [stats.throughputHistory]);
+  screen.key(['f', 'F'], () => {
+    const filters = ['ALL', 'INFO', 'WARN', 'ERROR', 'DEBUG'];
+    const nextIndex = (filters.indexOf(logViewer.getFilter()) + 1) % filters.length;
+    logViewer.setFilter(filters[nextIndex]);
     screen.render();
   });
 
+  // Focus par défaut sur la table recon pour permettre la navigation aux flèches
+  reconView.widget.focus();
   screen.render();
+
+  return { screen, logViewer, statsGauges, reconView };
 }
