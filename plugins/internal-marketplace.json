@@ -1,0 +1,53 @@
+{
+  "registryVersion": "1.0.0",
+  "updatedAt": "2026-03-30T10:00:00Z",
+  "plugins": [
+    {
+      "id": "auto-assign",
+      "name": "Auto Assign",
+      "version": "1.0.0",
+      "description": "Assigne automatiquement les PRs et Issues en fonction des répertoires touchés ou de mots-clés.",
+      "author": "teremuhamblin",
+      "category": "workflow",
+      "requiredPermissions": [
+        "pull_requests:read",
+        "pull_requests:write",
+        "issues:read",
+        "issues:write"
+      ],
+      "installed": true,
+      "enabled": true,
+      "source": "local"
+    },
+    {
+      "id": "pr-title-validator",
+      "name": "Conventional PR Title",
+      "version": "1.2.0",
+      "description": "Vérifie le format Conventional Commits sur les titres de Pull Requests.",
+      "author": "community",
+      "category": "linting",
+      "requiredPermissions": [
+        "pull_requests:read",
+        "pull_requests:write"
+      ],
+      "installed": false,
+      "enabled": false,
+      "source": "remote"
+    },
+    {
+      "id": "stale-issue-cleaner",
+      "name": "Stale Issues Cleaner",
+      "version": "2.0.1",
+      "description": "Marque et ferme les issues inactives après un certain délai.",
+      "author": "community",
+      "category": "maintenance",
+      "requiredPermissions": [
+        "issues:read",
+        "issues:write"
+      ],
+      "installed": false,
+      "enabled": false,
+      "source": "remote"
+    }
+  ]
+}
