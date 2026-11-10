@@ -1,0 +1,12 @@
+// plugins/installed/auto-assign/plugin.json
+{
+  "name": "auto-assign",
+  "version": "1.0.0",
+  "description": "Assigne automatiquement les PRs selon les dossiers modifiés",
+  "permissions": [
+    "pull_requests:read",
+    "pull_requests:write"
+  ],
+  "entry": "index.js",
+  "enabled": true
+}
